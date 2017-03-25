@@ -1,8 +1,11 @@
 (function () {
 'use strict';
 
-var boughtList = [
-  "",];
+var boughtList = [{
+    name: " ",
+    quantity: " "
+  }
+];
 
 var shoppingList2 = [
   {
@@ -33,7 +36,6 @@ angular.module('ShoppingListApp', [])
 
 ShoppingListController.$inject = ['$scope'];
 function ShoppingListController($scope) {
-  $scope.shoppingList1 = shoppingList1;
   $scope.shoppingList2 = shoppingList2;
 
   $scope.addToList = function () {
@@ -46,6 +48,17 @@ function ShoppingListController($scope) {
   };
 }
 
+  BoughtController.$inject = ['$scope'];
+function BoughtController($scope) {
+  $scope.boughtList = boughtList;
+
+  
+  $scope.move = function() {
+    	var entries = $scope.shoppingList2.splice(1,1);
+      $scope.boughtList.push(entries[0]);
+    };
+}
+  
 })();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
