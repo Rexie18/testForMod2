@@ -1,9 +1,8 @@
 (function () {
 'use strict';
 
-var shoppingList1 = [
-  "Milk", "Donuts", "Cookies", "Chocolate", "Peanut Butter", "Pepto Bismol", "Pepto Bismol (Chocolate flavor)", "Pepto Bismol (Cookie flavor)"
-];
+var boughtList = [
+  "",];
 
 var shoppingList2 = [
   {
@@ -29,7 +28,8 @@ var shoppingList2 = [
 ];
 
 angular.module('ShoppingListApp', [])
-.controller('ShoppingListController', ShoppingListController);
+.controller('ShoppingListController', ShoppingListController)
+.controller('BoughtController', BoughtController);
 
 ShoppingListController.$inject = ['$scope'];
 function ShoppingListController($scope) {
