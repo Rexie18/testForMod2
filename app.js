@@ -53,6 +53,10 @@ function ShoppingListController(ShoppingListService) {
 function BoughtController(ShoppingListService) {
  service.boughtList = boughtList;
 
+    service.move = function() {
+    	var entries = service.shoppingList2.splice(1,1);
+      service.boughtList.push(entries[0]);
+        };
     };
 }
   
@@ -60,12 +64,8 @@ function BoughtController(ShoppingListService) {
   var service = this;
 
   // List of shopping items
-  var items = [];
+  //var items = [];
 
- service.move = function() {
-    	var entries = service.shoppingList2.splice(1,1);
-      service.boughtList.push(entries[0]);
-        };
     };
 }
 })();
