@@ -32,33 +32,42 @@ var shoppingList2 = [
 
 angular.module('ShoppingListApp', [])
 .controller('ShoppingListController', ShoppingListController)
-.controller('BoughtController', BoughtController);
+.controller('BoughtController', BoughtController)
+.service('ShoppingListService', ShoppingListService);
 
-ShoppingListController.$inject = ['$scope'];
-function ShoppingListController($scope) {
-  $scope.shoppingList2 = shoppingList2;
+ShoppingListController.$inject = ['ShoppingListService'];
+function ShoppingListController(ShoppingListService) {
+  service.shoppingList2 = shoppingList2;
 
-  $scope.addToList = function () {
+  service.addToList = function () {
     var newItem = {
-      name: $scope.newItemName,
-      quantity: $scope.newItemQuantity
+      name: service.newItemName,
+      quantity: service.newItemQuantity
     };
 
-    $scope.shoppingList2.push(newItem);
+    service.shoppingList2.push(newItem);
   };
 }
 
-  BoughtController.$inject = ['$scope'];
-function BoughtController($scope) {
-  $scope.boughtList = boughtList;
+  BoughtController.$inject = ['ShoppingListService'];
+function BoughtController(ShoppingListService) {
+ service.boughtList = boughtList;
 
-  
-  $scope.move = function() {
-    	var entries = $scope.shoppingList2.splice(1,1);
-      $scope.boughtList.push(entries[0]);
     };
 }
   
+ function ShoppingListService() {
+  var service = this;
+
+  // List of shopping items
+  var items = [];
+
+ service.move = function() {
+    	var entries = service.shoppingList2.splice(1,1);
+      service.boughtList.push(entries[0]);
+        };
+    };
+}
 })();
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
