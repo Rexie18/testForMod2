@@ -9,7 +9,8 @@
   </head>
   <body>
     <h1>ng-repeat</h1>
-    <div id = row>
+    <div class="container">
+      <div class="row">
     <div ng-controller='ShoppingListController'>
       <!-- Shopping List #1: -->
       <h3>Shopping List:</h3>
@@ -35,7 +36,7 @@
        <ul>
         <li ng-repeat="item in boughtList">Buy Name:{{item.name}} | Qty:{{item.quantity}} (s)</li>
       </ul> 
-
+      </div>
     </div>
      </div> 
   </body>
