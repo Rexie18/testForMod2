@@ -60,7 +60,11 @@ function BoughtController(ShoppingListService) {
   var service = this;
 
   // List of shopping items
-  var items = boughtList;
+  var items = [{
+    name: " ",
+    quantity: " "
+  }
+];
 
  service.move = function() {
     	var entries = service.shoppingList2.splice(1,1);
