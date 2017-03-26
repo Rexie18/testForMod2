@@ -32,40 +32,32 @@ var shoppingList2 = [
 
 angular.module('ShoppingListApp', [])
 .controller('ShoppingListController', ShoppingListController)
-.controller('BoughtController', BoughtController)
-.service('ShoppingListService', ShoppingListService);
+.controller('BoughtController', BoughtController);
 
-ShoppingListController.$inject = ['ShoppingListService'];
+
+ShoppingListController.$inject = ['$scope'];
 function ShoppingListController(ShoppingListService) {
-  service.shoppingList2 = shoppingList2;
+  $scope.shoppingList2 = shoppingList2;
 
-  service.addToList = function () {
+  $scope.addToList = function () {
     var newItem = {
-      name: service.newItemName,
-      quantity: service.newItemQuantity
+      name: $scope.newItemName,
+      quantity: $scope.newItemQuantity
     };
 
-    service.shoppingList2.push(newItem);
+    $scope.shoppingList2.push(newItem);
   };
 }
 
-  BoughtController.$inject = ['ShoppingListService'];
+  BoughtController.$inject = ['$scope'];
 function BoughtController(ShoppingListService) {
- service.boughtList = boughtList;
+ $scope.boughtList = boughtList;
 
-    service.move = function() {
-    	var entries = service.shoppingList2.splice(1,1);
-      service.boughtList.push(entries[0]);
+    $scope.move = function() {
+    	var entries = $scope.shoppingList2.splice(1,1);
+      $scope.boughtList.push(entries[0]);
         };
     };
 }
   
- function ShoppingListService() {
-  var service = this;
-
-  // List of shopping items
-  //var items = [];
-
-    };
-}
 })();
