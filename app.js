@@ -1,63 +1,57 @@
 (function () {
 'use strict';
 
-var boughtList = [{
-    name: " ",
-    quantity: " "
-  }
-];
-
-var shoppingList2 = [
-  {
-    name: "Milk",
-    quantity: "2"
-  },
-  {
-    name: "Donuts",
-    quantity: "200"
-  },
-  {
-    name: "Cookies",
-    quantity: "300"
-  },
-  {
-    name: "Musil",
-    quantity: "10"
-  },
-  {
-    name: "Chocolate",
-    quantity: "5"
-  }
-];
-
 angular.module('ShoppingListApp', [])
-.controller('ShoppingListController', ShoppingListController)
-.controller('BoughtController', BoughtController);
+.controller('ShoppingListAddController', ShoppingListAddController)
+.controller('ShoppingListShowController', ShoppingListShowController)
+.service('ShoppingListService', ShoppingListService);
+
+ShoppingListAddController.$inject = ['ShoppingListService'];
+function ShoppingListAddController(ShoppingListService) {
+  var itemAdder = this;
+
+  itemAdder.itemName = "";
+  itemAdder.itemQuantity = "";
+
+  itemAdder.addItem = function () {
+    ShoppingListService.addItem(itemAdder.itemName, itemAdder.itemQuantity);
+  }
+}
 
 
-ShoppingListController.$inject = ['$scope'];
-function ShoppingListController(ShoppingListService) {
-  $scope.shoppingList2 = shoppingList2;
+ShoppingListShowController.$inject = ['ShoppingListService'];
+function ShoppingListShowController(ShoppingListService) {
+  var showList = this;
 
-  $scope.addToList = function () {
-    var newItem = {
-      name: $scope.newItemName,
-      quantity: $scope.newItemQuantity
-    };
+  showList.items = ShoppingListService.getItems();
 
-    $scope.shoppingList2.push(newItem);
+  showList.removeItem = function (itemIndex) {
+    ShoppingListService.removeItem(itemIndex);
   };
 }
 
-  BoughtController.$inject = ['$scope'];
-function BoughtController(ShoppingListService) {
- $scope.boughtList = boughtList;
 
-    $scope.move = function() {
-    	var entries = $scope.shoppingList2.splice(1,1);
-      $scope.boughtList.push(entries[0]);
-        };
+function ShoppingListService() {
+  var service = this;
+
+  // List of shopping items
+  var items = [];
+
+  service.addItem = function (itemName, quantity) {
+    var item = {
+      name: itemName,
+      quantity: quantity
     };
+    items.push(item);
+  };
+
+  service.removeItem = function (itemIdex) {
+    items.push(items.splice(itemIdex, 1));
+  };
+
+  service.getItems = function () {
+    return items;
+  };
 }
-  
+
 })();
