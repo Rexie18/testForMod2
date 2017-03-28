@@ -5,39 +5,26 @@
     <script src="angular.min.js"></script>
     <script src="app.js"></script>
     <style> body { font-size: 1.2em; }</style>
-    <title>ng-repeat</title>
+    <title>Custom Service</title>
   </head>
   <body>
-    <h1>ng-repeat</h1>
-    <div class="container">
-      <div class="row">
-    <div ng-controller='ShoppingListController'>
-      <!-- Shopping List #1: -->
-      <h3>Shopping List:</h3>
-      <!-- <ul>
-        <li ng-repeat="item in shoppingList1">{{ item }}</li>
-      </ul> -->
-
-      Shopping List #2:
-       <ul>
-        <li ng-repeat="item in shoppingList2">Buy Name:{{item.name}}  Qty:{{item.quantity}}(s)<button ng-click="move()"> Bought</button></li>
-      </ul> 
-
+    <h1>Custom Service</h1>
+    <div ng-controller='ShoppingListAddController as itemAdder'>
+      <ol>
+        <li ng-repeat="item in itemAdder.items">
+          {{ item.quantity }} of {{ item.name }}
+          <button ng-click="showList.removeItem($index);">Remove Item</button>
+        </li>
+      </ol>
     </div>
-    
-    <div ng-controller='BoughtController'>
-      <!-- Shopping List #1: -->
-      <h3>Bought List:</h3>
-      <!-- <ul>
-        <li ng-repeat="item in shoppingList1">{{ item }}</li>
-      </ul> -->
 
-      Shopping List #3:
-       <ul>
-        <li ng-repeat="item in boughtList">Buy Name:{{item.name}}  Qty:{{item.quantity}}(s)</li>
-      </ul> 
-      </div>
+    <div ng-controller='ShoppingListShowController as showList'>
+      <ol>
+        <li ng-repeat="item in showList.items">
+          {{ item.quantity }} of {{ item.name }}
+<!--           <button ng-click="showList.removeItem($index);">Remove Item</button> -->
+        </li>
+      </ol>
     </div>
-     </div> 
   </body>
 </html>
