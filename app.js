@@ -64,9 +64,7 @@ service.bought = [];
           };
     };
 
-// 	service.getItems = function(){
-// 		return bought;
-// 	};
+}
 	
 	
 }
