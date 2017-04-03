@@ -61,8 +61,8 @@ service.bought = [];
           if (idx != -1) {
               shoppingList2.splice(idx, 1);
               bought.push(item);      
-          }
-    };
+          };
+    }
 
 	service.getItems = function(){
 		return bought;
