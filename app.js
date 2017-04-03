@@ -58,8 +58,8 @@ service.bought = [];
         service.forEach(function(itemIndex) {
           var idx = service.shoppingList2.indexOf(item);
           if (idx != -1) {
-              service.shoppingList2.splice(idx, 1);
-              service.bought.push(item);      
+              service.shoppingList2.splice(itemIndex, 1);
+              service.bought.push(itemIndex, 1);      
           };
           
         });
