@@ -63,7 +63,7 @@ service.bought = [];
               bought.push(item);      
           };
           
-        };
+        });
       };
    }
 	
