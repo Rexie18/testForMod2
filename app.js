@@ -20,7 +20,7 @@ function ToBuyController(ShoppingListService) {
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService) {
  var boughtItem = this;
-  boughtItem.boughtList = ShoppingListService.getItems();
+  boughtItem.boughtList = ShoppingListService.bought;
 }
 
 function ShoppingListService( ) {
@@ -54,19 +54,19 @@ function ShoppingListService( ) {
  
 service.bought = [];
 
-	service.remove = function(items, shoppingList2, bought) {
+	service.remove = function(itemIndex) {
 
-        service.forEach(function(item) {
-          var idx = from.indexOf(item);
+        service.forEach(function(itemIndex) {
+          var idx = shoppingList2.indexOf(item);
           if (idx != -1) {
               shoppingList2.splice(idx, 1);
               bought.push(item);      
           };
     }
 
-	service.getItems = function(){
-		return bought;
-	};
+// 	service.getItems = function(){
+// 		return bought;
+// 	};
 	
 	
 }
