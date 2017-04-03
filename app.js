@@ -54,7 +54,7 @@ function ShoppingListService( ) {
  
 service.bought = [];
 
-	service.remove = function(itemIndex) {
+	service.remove = function(itemIndex,shoppingList2,bought ) {
 
         service.forEach(function(itemIndex) {
           var idx = shoppingList2.indexOf(item);
