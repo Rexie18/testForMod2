@@ -12,7 +12,7 @@ function ToBuyController(ShoppingListService) {
   var itemAdder = this;
   itemAdder.shoppingList2 = ShoppingListService.shoppingList2;
   
-  itemAdder.remove = function (itemIndex){
+  itemAdder.remove = function (itemIndex, shoppingList2, bought){
   ShoppingListService.remove(itemIndex)
  };
 }
@@ -54,7 +54,7 @@ function ShoppingListService( ) {
  
 service.bought = [];
 
-	service.remove = function(itemIndex,shoppingList2,bought ) {
+	service.remove = function(itemIndex,shoppingList2,bought) {
 
         service.forEach(function(itemIndex) {
           var idx = shoppingList2.indexOf(item);
