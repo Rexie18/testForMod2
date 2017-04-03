@@ -62,7 +62,7 @@ service.bought = [];
               shoppingList2.splice(idx, 1);
               bought.push(item);      
           };
-    }
+    };
 
 // 	service.getItems = function(){
 // 		return bought;
