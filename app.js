@@ -56,7 +56,7 @@ service.bought = [];
 	service.remove = function(itemIndex) {
 
         service.forEach(function(itemIndex) {
-          var idx = service.shoppingList2.indexOf(item);
+          var idx = service.shoppingList2(itemIndex);
           if (idx != -1) {
               service.shoppingList2.splice(itemIndex, 1);
               service.bought.push(itemIndex, 1);      
