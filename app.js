@@ -54,7 +54,7 @@ function ShoppingListService( ) {
  
 service.bought = [];
 
-	$scope.remove = function(items, shoppingList2, bought) {
+	service.remove = function(items, shoppingList2, bought) {
 
         service.forEach(function(item) {
           var idx = from.indexOf(item);
