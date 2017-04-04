@@ -20,7 +20,7 @@ function ToBuyController(ShoppingListService) {
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService) {
  var boughtItem = this;
-  boughtItem.boughtList = ShoppingListService.bought;
+  boughtItem.boughtList = ShoppingListService.remove();
 }
 
 function ShoppingListService( ) {
@@ -51,12 +51,7 @@ function ShoppingListService( ) {
 ];
 
 	
-	service.bought = [
-		{
-          name: " ",
-          quantity: " "
-        }
-	];
+	service.bought = [];
 
 
 	service.remove = function(itemIndex){
