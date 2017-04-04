@@ -20,7 +20,7 @@ function ToBuyController(ShoppingListService) {
 AlreadyBoughtController.$inject = ['ShoppingListService'];
 function AlreadyBoughtController(ShoppingListService) {
  var boughtItem = this;
-  boughtItem.boughtList = ShoppingListService.getItems();
+  boughtItem.boughtList = ShoppingListService.bought;
 }
 
 function ShoppingListService( ) {
@@ -58,7 +58,7 @@ service.bought = [""];
 		
 	}
 
-	service.getItems = function(){
+	service.getItems = function(itemIndex){
 		return service.bought;
 	};
 	
