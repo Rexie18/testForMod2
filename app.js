@@ -50,7 +50,7 @@ function ShoppingListService( ) {
   }
 ];
 	
-var bought = [];
+service.bought = [];
 
 
 	service.remove = function(itemIndex){
@@ -59,7 +59,7 @@ var bought = [];
 	}
 
 	service.getItems = function(){
-		return bought;
+		return service.bought;
 	};
 	
 	
