@@ -50,7 +50,7 @@ function ShoppingListService( ) {
   }
 ];
 	
-service.bought = {""};
+service.bought = [""];
 
 
 	service.remove = function(itemIndex){
