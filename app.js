@@ -50,12 +50,13 @@ function ShoppingListService( ) {
   }
 ];
 
-	var bought = {
+	
+	service.bought = [
+		{
           name: " ",
           quantity: " "
         }
-	
-	service.bought = [];
+	];
 
 
 	service.remove = function(itemIndex){
