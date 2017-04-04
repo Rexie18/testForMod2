@@ -49,8 +49,13 @@ function ShoppingListService( ) {
     "quantity": "5"
   }
 ];
+
+	var bought = {
+          name: " ",
+          quantity: " "
+        }
 	
-service.bought = [];
+	service.bought = [];
 
 
 	service.remove = function(itemIndex){
@@ -58,7 +63,7 @@ service.bought = [];
 		
 	}
 
-	service.getItems = function(name, quantity){
+	service.getItems = function(){
 		return service.bought;
 	};
 	
